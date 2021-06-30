@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'superheroes.apps.SuperheroesConfig'
+    'superheroes.apps.SuperheroesConfig',
+    'django_tables2'
 ]
 
 MIDDLEWARE = [

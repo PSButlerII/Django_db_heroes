@@ -10,14 +10,27 @@
 <body>
 <h1>Hero Details</h1>
 <ul>
+<table class="hero_detail">
+    <thead>
+            <th>Super Hero Name</th>
+            <th>Alter Ego</th>
+            <th>Primary Ability</th>
+            <th>Secondary Ability</th>
+            <th>Catch Phrase</th>
 
-    <li><h2>{{superhero.name}}
-        {{superhero.alter_ego}}}
-        {{superhero.primary_ability}}
-        {{superhero.secondary_ability}}
-        {{superhero.catch_phrase}} </h2>
-    </li>
-    {% endfor %}
-</ul>
+
+        </thead>
+
+    <tr>
+
+        <td>Name:</td>
+        <td>{superhero.alter_ego}</td>
+        <td>{superhero.primary_ability}</td>
+        <td>{superhero.secondary_ability}</td>
+        <td>{superhero.catch_phrase}</td>
+        </tr>
+
+</table>
+
 </body>
 </html>

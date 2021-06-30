@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'superheros:create_new_superhero' %}" method="post">
+        {% crsf_token %}
+        Name:<input type="text" name="name" id="name"><br>
+        Alter Ego:<input type="text" name="alter ego" id="alter ego"><br>
+        Primary Ability:<input type="text" name="primary ability" id="primary ability"><br>
+        Secondary Ability:<input type="text" name="secondary ability" id="secondary ability"><br>
+        Catch Phrase:<input type="text" name="catch phrase" id="catch phrase"><br>
+        <input type="submit" value="ADD new!">
+    </form>
+</body>
+</html>
