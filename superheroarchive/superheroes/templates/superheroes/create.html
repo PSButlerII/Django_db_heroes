@@ -1,15 +1,25 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="{% url 'superheros:create_new_superhero' %}" method="post">
-        {% crsf_token %}
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block nav-style %}mkt-nav{% endblock nav-style %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'superheroes:create_new_superhero' %}">Create New Hero <span class="sr-only"></span></a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="{% url 'superheroes:index' %}">List Home</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+           <form action="{% url 'superheroes:create_new_superhero' %}" method="post">
+        {% csrf_token %}
         Name:<input type="text" name="name" id="name"><br>
         Alter Ego:<input type="text" name="alter ego" id="alter ego"><br>
         Primary Ability:<input type="text" name="primary ability" id="primary ability"><br>
@@ -17,5 +27,5 @@
         Catch Phrase:<input type="text" name="catch phrase" id="catch phrase"><br>
         <input type="submit" value="ADD new!">
     </form>
-</body>
-</html>
+        {% endblock content %}
+

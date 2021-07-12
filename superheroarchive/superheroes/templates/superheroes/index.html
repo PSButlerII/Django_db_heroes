@@ -1,20 +1,34 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Super Hero Archive</title>
-</head>
-<body>
-<h1>List of Super Heroes</h1>
-<ul>
-    {% for superhero in all_superheroes %}
-    <li><h2>{{superhero.name}} </h2>
-    <a href="{% url 'superheroes:superhero_detail' superhero.id %}">See more info</a></li>
-    {% endfor %}
-</ul>
+{% extends 'base.html' %}
+{% block title %}Super Hero Archive{% endblock title %}
+{% block nav-style %}{% endblock nav-style %}
 
-</body>
-</html>
+{% block content %}
+
+
+<h1>List of Super Heroes</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'superheroes:create_new_superhero' %}">Create New Hero <span class="sr-only"></span></a>
+      </li>
+     </ul>
+  </div>
+</nav>
+<div class="list-group">
+    <a class="list-group-item list-group-item-action active">
+     Super Heroes List
+     </a>
+    {% for superhero in all_superheroes %}
+    <h2>{{superhero.name}} </h2>
+    <a href="{% url 'superheroes:superhero_detail' superhero.id %}">See more info</a></li>
+
+    {% endfor %}
+</div>
+
+
+{% endblock content %}

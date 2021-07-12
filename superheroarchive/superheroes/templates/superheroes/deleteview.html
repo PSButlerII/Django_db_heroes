@@ -3,6 +3,7 @@
 {% block nav-style %}{% endblock nav-style %}
 
 {% block content %}
+<h1>List of Super Heroes</h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +15,7 @@
         <a class="nav-link" href="{% url 'superheroes:create_new_superhero' %}">Create New Hero <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'superheroes:delete_hero' %}">Delete Hero</a>
-      </li>
-        <li class="nav-item">
-        <a class="nav-link" href="{% url 'superheroes:index' %}">List Home</a>
+        <a class="nav-link" href="{% url 'superheroes:index' %}">Home</a>
       </li>
     </ul>
   </div>
@@ -26,29 +24,24 @@
 <h1>Hero Details</h1>
 
 <table class="hero_detail" border="3">
-
           <tr>
-
             <th>SuperHero Name</th>
             <th>Alter Ego</th>
             <th>Primary Ability</th>
               <th>Secondary Ability</th>
               <th>Catch Phrase</th>
-
           </tr>
-
           <tr>
             <td>{{singular_superhero.name}}</td>
             <td>{{singular_superhero.alter_ego}}</td>
             <td>{{singular_superhero.primary_ability}}</td>
             <td>{{singular_superhero.secondary_ability}}</td>
               <td>{{singular_superhero.catch_phrase}}</td>
-
           </tr>
-
         </table>
+<form action='.' method='POST'>{% csrf_token %}
+    <h1>Do you want to delete the hero from the Archive "{{singular_superhero.name}}</h1>
+    <p><input type='submit' value='yes' /> <a href='../'>Cancel</a></p>
+</form>
 
-{% endblock content %}
-
-
-
+    {% endblock content %}
